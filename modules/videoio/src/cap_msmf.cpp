@@ -50,6 +50,11 @@
 #pragma comment(lib, "dxgi")
 #ifdef HAVE_MSMF_DXVA
 #pragma comment(lib, "d3d11")
+
+#include <ks.h>
+
+EXTERN_GUID( KSCATEGORY_SENSOR_CAMERA, 0x24e552d7, 0x6523, 0x47f7, 0xa6, 0x47, 0xd3, 0x46, 0x5b, 0xf1, 0xf5, 0xca);
+
 // MFCreateDXGIDeviceManager() is available since Win8 only.
 // To avoid OpenCV loading failure on Win7 use dynamic detection of this symbol.
 // Details: https://github.com/opencv/opencv/issues/11858
