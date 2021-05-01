@@ -541,7 +541,8 @@ public:
     {
         _ComPtr<IMFAttributes> attr;
         if (FAILED(MFCreateAttributes(&attr, 1)) ||
-            FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, sourceType)))
+            FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, sourceType)) || 
+            FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, KSCATEGORY_SENSOR_CAMERA)))
         {
             CV_Error(CV_StsError, "Failed to create attributes");
         }
