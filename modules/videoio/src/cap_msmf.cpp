@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <ks.h>
 
 #ifdef _MSC_VER
 #pragma warning(disable:4503)
