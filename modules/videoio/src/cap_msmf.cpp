@@ -38,7 +38,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-#include <ks.h>
 
 #ifdef _MSC_VER
 #pragma warning(disable:4503)
@@ -84,6 +83,10 @@ struct IMFAttributes;
 #define CV_CAP_MODE_RGB CV_FOURCC_MACRO('R','G','B','3')
 #define CV_CAP_MODE_GRAY CV_FOURCC_MACRO('G','R','E','Y')
 #define CV_CAP_MODE_YUYV CV_FOURCC_MACRO('Y', 'U', 'Y', 'V')
+
+
+EXTERN_GUID(KSCATEGORY_SENSOR_CAMERA_X, 0x24e552d7, 0x6523, 0x47f7, 0xa6, 0x47, 0xd3, 0x46, 0x5b, 0xf1, 0xf5, 0xca);
+
 
 using namespace cv;
 
@@ -543,7 +546,7 @@ public:
         _ComPtr<IMFAttributes> attr;
         if (FAILED(MFCreateAttributes(&attr, 1)) ||
             FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, sourceType)) || 
-            FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, KSCATEGORY_SENSOR_CAMERA)))
+            FAILED(attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, KSCATEGORY_SENSOR_CAMERA_X)))
         {
             CV_Error(CV_StsError, "Failed to create attributes");
         }
